@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body class="bg-gray-100 p-6">
+
+  <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 mb-6 rounded-lg shadow">
+    <div class="-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap">
+      <div class="ml-4 mt-2">
+        
+        <h1 class="text-2xl font-bold leading-6 text-gray-900">
+          Selamat Datang, <%= user.username %>!
+        </h1>
+        <p class="mt-1 text-sm text-gray-500">
+          Anda login sebagai <%= user.role %>.
+        </p>
+
+      </div>
+      <div class="ml-4 mt-2 flex-shrink-0">
+        <a href="/logout"
+          class="relative inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-2">
+            <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75h-5.5a.75.75 0 000 1.5h5.5a.75.75 0 00.75-.75z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M16.72 5.22a.75.75 0 00-1.06 0l-2.25 2.25a.75.75 0 000 1.06l2.25 2.25a.75.75 0 001.06-1.06L14.81 10l1.91-1.91a.75.75 0 000-1.06z" clip-rule="evenodd" />
+          </svg>
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Total Pengguna</h2>
+      <p class="text-4xl font-bold text-blue-600"><%= data.statistik.pengguna %></p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Total Produk</h2>
+      <p class="text-4xl font-bold text-green-600"><%= data.statistik.produk %></p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Total Kegiatan</h2>
+      <p class="text-4xl font-bold text-yellow-600"><%= data.statistik.kegiatan %></p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Total Prestasi</h2>
+      <p class="text-4xl font-bold text-indigo-600"><%= data.statistik.prestasi %></p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Total Review</h2>
+      <p class="text-4xl font-bold text-pink-600"><%= data.statistik.review %></p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <h3 class="text-lg font-semibold text-gray-800 p-4 border-b">Pengguna Terbaru</h3>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <% data.terbaru.pengguna.forEach(pengguna => { %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= pengguna.Nama %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= pengguna.Role %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <h3 class="text-lg font-semibold text-gray-800 p-4 border-b">Kegiatan Terbaru</h3>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul Kegiatan</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <% data.terbaru.kegiatan.forEach(keg => { %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= keg.Judul %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <% if (keg.Status === 'Upcoming') { %>
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Upcoming
+                  </span>
+                <% } else { %>
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                    Past
+                  </span>
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

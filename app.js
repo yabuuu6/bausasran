@@ -10,9 +10,9 @@ const seedDatabase = require('./config/seeder');       // Script "Isi Data"
 const db = require('./models');                        // Koneksi Sequelize
 
 // Impor Rute (Kita matikan penggunaannya di bawah)
-// const authRoutes = require('./routes/auth');
-// const adminRoutes = require('./routes/admin');
-// const indexRoutes = require('./routes/index');
+const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin');
+const indexRoutes = require('./routes/index');
 
 // 3. KONFIGURASI EJS (VIEW ENGINE)
 app.engine('ejs', ejsMate);
@@ -36,9 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 7. MENGHUBUNGKAN RUTE (ROUTING)
 // === DIMATIKAN SEMENTARA SESUAI PERMINTAAN ===
-// app.use('/', authRoutes); 
+app.use('/', authRoutes); 
 // app.use('/admin', adminRoutes);
-// app.use('/', indexRoutes); 
+app.use('/', indexRoutes); 
 // ============================================
 
 

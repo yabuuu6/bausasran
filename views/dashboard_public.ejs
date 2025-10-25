@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Publik Bausasran</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <%- include('partials/navbar') %>
+
+    <section id="hero" class="bg-blue-600 text-white">
+        <div class="container mx-auto px-6 py-24 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Transparansi Layanan Publik</h2>
+            <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Selamat datang di dashboard publik kami. Pantau status layanan, lihat laporan warga, dan ikuti progres inisiatif kami secara real-time.
+            </p>
+            <a href="#dashboard" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                Lihat Data Dashboard
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                
+                <div class="md:w-1/2">
+                    <span class="text-blue-600 font-semibold uppercase">Tentang Kami</span>
+                    <h2 class="text-3xl font-bold text-gray-900 my-3">Misi Kami untuk Keterbukaan Informasi</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Kami adalah inisiatif yang didedikasikan untuk menyediakan data layanan publik secara transparan dan mudah diakses. Misi kami adalah memberdayakan warga dengan informasi yang akurat dan tepat waktu.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Melalui dashboard ini, Anda dapat memantau status berbagai layanan, melihat jumlah laporan yang telah diselesaikan, dan melacak progres inisiatif publik yang sedang berjalan di wilayah kita.
+                    </p>
+                </div>
+
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=80&w=1740" 
+                         alt="Tim kami sedang bekerja" 
+                         class="rounded-lg shadow-xl object-cover w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="dashboard" class="container mx-auto px-6 py-20">
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Dashboard Real-Time</h2>
+            <p class="text-gray-600 mt-2">Data terbaru per hari ini.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Status Layanan Real-Time</h2>
+                <ul class="space-y-3">
+                    <li class="flex justify-between items-center">
+                        <span>Aplikasi Web</span>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-green-100 text-green-800">
+                            Operasional
+                        </span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>API Server</span>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-green-100 text-green-800">
+                            Operasional
+                        </span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Layanan Pembayaran</span>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">
+                            Gangguan Sebagian
+                        </span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Database Laporan</span>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-800">
+                            Padam
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center md:col-span-1 lg:col-span-2">
+                <h2 class="text-xl font-semibold mb-2">Laporan Warga Selesai</h2>
+                <div class="text-6xl font-extrabold text-blue-600 my-4">
+                    1.280
+                </div>
+                <p class="text-gray-500">dalam 30 hari terakhir</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Penggalangan Dana Pendidikan</h2>
+                <p class="text-sm text-gray-500 mb-1">Target: Rp 100.000.000</p>
+                <div class="w-full bg-gray-200 rounded-full h-6 mb-2">
+                    <div class="bg-blue-600 h-6 rounded-full flex items-center justify-center text-sm font-medium text-white" 
+                         style="width: 75%;">
+                        75%
+                    </div>
+                </div>
+                <p class="text-md font-semibold text-gray-700">Terkumpul: Rp 75.000.000</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Metrik Lain</h2>
+                <p class="text-gray-500">Data Anda berikutnya...</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Bausasran. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
